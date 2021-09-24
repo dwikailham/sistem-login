@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2021 at 11:05 AM
+-- Generation Time: Sep 24, 2021 at 11:44 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `sistem-login`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mahasiswa`
+--
+
+CREATE TABLE `mahasiswa` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `nim` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `jurusan` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `email`, `jurusan`) VALUES
+(1, 'Dwika Ilham Zakaria', '1731710156', 'dwikailham37@gmail.com', 'Teknologi Informasi'),
+(5, 'Ronaldinho', '1731710146', 'asdasd@gmail.com', 'Manajemen Informatika');
 
 -- --------------------------------------------------------
 
@@ -44,7 +66,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (4, 'Dwika Ilham Zakaria', 'dwikailham37@gmail.com', 'default.svg', '$2y$10$rgEXqPUFF6FInvK46jrN4eZ9ZrWgJopyWYEvDdbnav9YnEBNVLOv.', 1, 1, 1628898577),
-(9, 'Dwika Ilham', 'idwika18@gmail.com', 'undraw_profile_3.svg', '$2y$10$6Sdraid3s4CtInKtNpRCG.coHDhbdPhi6G4Cd8P19dIS5SZF6hD9u', 2, 1, 1631779667);
+(9, 'Dwika Ilham', 'idwika18@gmail.com', 'undraw_profile_3.svg', '$2y$10$cjElCfdhVSPKu6F1by7aWuICMp9diTLkMrWAKgGWy8TQiAbyoa436', 2, 1, 1631779667);
 
 -- --------------------------------------------------------
 
@@ -133,7 +155,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (3, 2, 'Edit Profil', 'user/edit', 'fas fa-fw fa-user-edit', 1),
 (4, 3, 'Manajemen Menu', 'menu', 'fas fa-fw fa-file-alt', 1),
 (5, 3, 'Sub Manajemen Menu', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
-(7, 2, 'Ubah Password', 'user/ubahpassword', 'fas fa-fw fa-key', 1);
+(7, 2, 'Ubah Password', 'user/ubahpassword', 'fas fa-fw fa-key', 1),
+(8, 1, 'Mahasiswa', 'admin/mahasiswa', 'fas fa-fw fa-user', 1);
 
 -- --------------------------------------------------------
 
@@ -171,11 +194,18 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (16, 'idwika18@gmail.com', 'CNhtrA1PLF1xV25dNyrxA6zYChinMjY0u/VBfkLatYI=', 1631761557),
 (17, 'idwika18@gmail.com', '669CXhwB+tx9A8TKliSgMOYMZEEin1acl05d1dvOllo=', 1631776984),
 (18, 'idwika18@gmail.com', 'eQLe6W7xnM0Z2CeMRJjkhbJObWWwpT1IFKC1WWU011U=', 1631777110),
-(19, 'idwika18@gmail.com', 'umcLB1BGqodqpGXu9ZKNqHQ5RD7YIkIoL53Fs7bP/pA=', 1631779767);
+(19, 'idwika18@gmail.com', 'umcLB1BGqodqpGXu9ZKNqHQ5RD7YIkIoL53Fs7bP/pA=', 1631779767),
+(20, 'idwika18@gmail.com', 'z2YvEkDTrYzgbJcaSGoPAQ8s5829//4ZkxYu3i5ac88=', 1632383807);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -218,6 +248,12 @@ ALTER TABLE `user_token`
 --
 
 --
+-- AUTO_INCREMENT for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
@@ -245,13 +281,13 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
